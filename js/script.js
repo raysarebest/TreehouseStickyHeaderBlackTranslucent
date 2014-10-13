@@ -7,5 +7,6 @@ window.onload = function(){
   $(window).scroll(function() {
     var screenTop = $(document).scrollTop();
     $('#blur canvas').css('top', -screenTop);
+    $('#blur').css('background', 'rgba(0, 0, 0, 0)');
   });
 };

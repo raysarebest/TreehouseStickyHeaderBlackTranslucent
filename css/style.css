@@ -65,7 +65,7 @@ header {
   position: fixed;
   top: 0;
   margin-top: -3px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 2; }
 
 #blur {
@@ -74,10 +74,12 @@ header {
   height: 72px;
   text-align: center;
   top: 0;
-  clip: rect(0px, 2000px, 70px, 0px); }
+  clip: rect(0px, 2000px, 70px, 0px);
+  background: #000; }
 #blur canvas {
   position: fixed;
   top: 0;
-  left: 0;
+  left: -25%;
+  zoom: 150%;
   -webkit-filter: blur(10px);
   filter: blur(10px); }
