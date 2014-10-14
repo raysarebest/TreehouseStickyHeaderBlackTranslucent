@@ -9,19 +9,17 @@ header{
     margin-top: 0;
   }
   nav{
-    display: inline-block;
+    display: inline;
     text-align: right;
     ul{
       font-weight: bold;
       margin-top: 1.5%;
       li{
-        position: absolute;
-        right: 5px;
-        display: inline-block;
-        padding: 3%;
+        display: inline;
+        padding: 0;
+        margin-right: 2%;
         font-size: 2em;
         font-family: sans-serif;
-        text-align: right;
         &:hover{
           color: #69c773;
         }
