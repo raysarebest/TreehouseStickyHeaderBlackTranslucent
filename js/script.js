@@ -1,29 +1,27 @@
 //Rus on load
 var $largeCanvas;
 var $smallCanvas;
+var lastHeight;
 window.onload = function(){
   drawCanvas("large");
   var lastScrollTop;
+  lastHeight = 200;
   $(window).scroll(function() {
     var screenTop = $(document).scrollTop();
     $('#blur canvas').css('top', -screenTop);
     $('#blur').css('background', 'rgba(0, 0, 0, 0)');
   });
   $(window).bind('mousewheel', function(event) {
-    var lastHeight;
     var scroll = 0;
     if (event.originalEvent.wheelDelta >= 0) {
       if(document.getElementsByTagName('header')[0].clientHeight === 72){
-        // if(scroll === 0){
-        //   removeAllCanvases();
-        //   drawCanvas();
-        // }
         document.getElementsByTagName('header')[0].style.height = "200px";
         document.getElementById('blur').style.clip = "rect(0px, 2000px, 200px, 0px)";
         document.getElementById('blur').style.height = "200px";
         $("#images li:first-child").css('margin-top', 200);
         if(lastHeight === 200){
-          exchangeCanvasToSize('small');
+          exchangeCanvasToSize('large');
+          console.log("canvas changed to large");
         }
         lastHeight = 72;
         scroll++;
@@ -31,16 +29,16 @@ window.onload = function(){
     }
     else{
       if(document.getElementsByTagName('header')[0].clientHeight === 200){
-        // if(scroll === 0){
-        //   removeAllCanvases();
-        //   drawCanvas();
-        // }
+        if(scroll === 0){
+          exchangeCanvasToSize("small");
+        }
         document.getElementsByTagName('header')[0].style.height = "72px";
         document.getElementById('blur').style.clip = "rect(0px, 2000px, 72px, 0px)";
         document.getElementById('blur').style.height = "72px";
         $("#images li:first-child").css('margin-top', 72);
         if(lastHeight === 72){
-          exchangeCanvasToSize("large");
+          exchangeCanvasToSize("small");
+          console.log("canvas changed to small");
         }
         lastHeight = 200;
         scroll++;
@@ -68,24 +66,6 @@ function drawCanvas(size){
   else{
     removeAllCanvases();
     drawCanvas();
-  }
-}
-function shrinkHeader(){
-  if(document.getElementsByTagName('header')[0].clientHeight > 100){
-    document.getElementsByTagName('header')[0].style.height = "72px";
-    document.getElementById('blur').style.clip = "rect(0px, 2000px, 72px, 0px)";
-    document.getElementById('blur').style.height = "72px";
-    $("#images li:first-child").css('margin-top', 72);
-  }
-  else{
-    document.getElementsByTagName('header')[0].style.height = "200px";
-    document.getElementById('blur').style.clip = "rect(0px, 2000px, 200px, 0px)";
-    document.getElementById('blur').style.height = "200px";
-    $("#images li:first-child").css('margin-top', 200);
-  }
-}
-function removeAllCanvases(){
-  for(var i = 0; i < document.getElementById("blur").getElementsByTagName('canvas').length; i++){  document.getElementById('blur').removeChild(document.getElementById('blur').getElementsByTagName('canvas')[i]);
   }
 }
 function exchangeCanvasToSize(size){
