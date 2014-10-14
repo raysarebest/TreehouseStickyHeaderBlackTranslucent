@@ -86,9 +86,12 @@ header ul li {
   padding: 3%;
   font-size: 2em;
   font-family: sans-serif; }
-header ul li:hover {
+header ul li a {
+  text-decoration: none;
+  color: white; }
+header ul li a:hover {
   color: #69c773; }
-header ul li#selected {
+header ul li a#selected {
   color: #69c773; }
 
 #blur {

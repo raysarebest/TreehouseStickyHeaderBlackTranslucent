@@ -62,11 +62,15 @@ header{
       padding: 3%;
       font-size: 2em;
       font-family: sans-serif;
-      &:hover{
-        color: #69c773;
-      }
-      &#selected{
-        color: #69c773;
+      a{
+        text-decoration: none;
+        color: white;
+        &:hover{
+          color: #69c773;
+        }
+        &#selected{
+          color: #69c773;
+        }
       }
     }
   }

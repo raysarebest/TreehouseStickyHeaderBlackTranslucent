@@ -1,6 +1,8 @@
 //Rus on load
 var $largeCanvas;
 var $smallCanvas;
+var $short = $('<link>');
+$($short).attr({id:"short", rel:"stylesheet", href:"css/short.css"});
 var lastHeight;
 window.onload = function(){
   drawCanvas("large");
@@ -15,6 +17,8 @@ window.onload = function(){
     var scroll = 0;
     if (event.originalEvent.wheelDelta >= 0) {
       if(document.getElementsByTagName('header')[0].clientHeight === 72){
+        $("#short").detach();
+        $("header img").attr({src:"img/treehouse-small.png"});
         document.getElementsByTagName('header')[0].style.height = "200px";
         document.getElementById('blur').style.clip = "rect(0px, 2000px, 200px, 0px)";
         document.getElementById('blur').style.height = "200px";
@@ -33,6 +37,8 @@ window.onload = function(){
           exchangeCanvasToSize("small");
         }
         document.getElementsByTagName('header')[0].style.height = "72px";
+        $("header img").attr({src:"img/treehouse-long.png"});
+        $("head").append($short);
         document.getElementById('blur').style.clip = "rect(0px, 2000px, 72px, 0px)";
         document.getElementById('blur').style.height = "72px";
         $("#images li:first-child").css('margin-top', 72);
@@ -74,7 +80,8 @@ function exchangeCanvasToSize(size){
     document.getElementById('blur').appendChild($largeCanvas);
   }
   else{
-    document.getElementById('blur').removeChild(document.getElementById('blur').getElementsByTagName('canvas')[0]);
+  if(document.getElementById('blur').getElementsByTagName('canvas')[0] !== undefined){  document.getElementById('blur').removeChild(document.getElementById('blur').getElementsByTagName('canvas')[0]);
+  }
     if($smallCanvas !== undefined){
       document.getElementById('blur').appendChild($smallCanvas);
     }

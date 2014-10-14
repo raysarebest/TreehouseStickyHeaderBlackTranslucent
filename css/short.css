@@ -1,0 +1,27 @@
+header {
+  text-align: right; }
+header img {
+  display: block;
+  height: 50px;
+  position: absolute;
+  left: 2px;
+  top: 10px;
+  margin-top: 0; }
+header nav {
+  display: inline-block;
+  text-align: right; }
+header nav ul {
+  font-weight: bold;
+  margin-top: 1.5%; }
+header nav ul li {
+  position: absolute;
+  right: 5px;
+  display: inline-block;
+  padding: 3%;
+  font-size: 2em;
+  font-family: sans-serif;
+  text-align: right; }
+header nav ul li:hover {
+  color: #69c773; }
+header nav ul li#selected {
+  color: #69c773; }
